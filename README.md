@@ -28,9 +28,20 @@ source venv/bin/activate
 
 ### Instalar Bibliotecas Necessárias
 
-```bash
-pip install -r requirements.txt
-```
+1. **Instalar as dependências do Python**:
+   - Ative o ambiente virtual:
+     - No Windows:
+       ```sh
+       .\venv\Scripts\activate
+       ```
+     - No macOS/Linux:
+       ```sh
+       source venv/bin/activate
+       ```
+   - Instale as dependências:
+     ```sh
+     pip install -r requirements.txt
+     ```
 
 ### Gerar Executável (.exe) do Projeto
 
@@ -38,14 +49,14 @@ Para gerar um executável (.exe) do projeto, você pode usar a biblioteca `pyins
 
 1. Dentro da pasta `app`:
 
-    ```bash
+    ```sh
     cd app
     ```
 
 2. Gere o executável:
 
-    ```bash
-    pyinstaller --onefile --add-data "imports;imports" main.py
+    ```sh
+    pyinstaller --onefile --add-data "lib;lib" main.py
     ```
 
 2. O executável será gerado na pasta `dist`.
