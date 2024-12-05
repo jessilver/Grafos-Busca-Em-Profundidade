@@ -20,6 +20,7 @@ def print_menu():
         '||                                                                                           ||\n'
         '===============================================================================================\n'
     )
+    
 
 def selectable_digraphs(n_archives, n_digraphs):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -28,7 +29,6 @@ def selectable_digraphs(n_archives, n_digraphs):
         '||' + Fore.CYAN + ' Arquivos lidos: ' + Fore.BLUE + f'{n_archives}                                                                         ' + Fore.YELLOW + '||\n'
         '||' + Fore.CYAN + ' Digrafos disponíveis: ' + Fore.BLUE + f'{n_digraphs}                                                                   ' + Fore.YELLOW + '||\n'
         '||' + Fore.CYAN + ' Selecione uma opção entre ' + Fore.BLUE + '1' + Fore.YELLOW + ' e ' + Fore.BLUE + f'{n_digraphs}                                                           ' + Fore.YELLOW + '||\n'
-        '||' + Fore.RED + ' Digite 0 para voltar ao menu                                                              ' + Fore.YELLOW + '||\n'
         '||                                                                                           ||\n'
         '===============================================================================================\n'
     )
@@ -38,6 +38,16 @@ def end_program():
     print(header +
         '||                                                                                           ||\n'
         '||' + Fore.RED + '                                   Progama Finalizado.                                     ' + Fore.YELLOW + '||\n'
+        '||                                                                                           ||\n'
+        '===============================================================================================\n'
+    )
+
+def draw_or_dfs():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print(header +
+        '||                                                                                           ||\n'
+        '||' + Fore.CYAN + ' 1 - Desenhar Digrafo.                                                                     ' + Fore.YELLOW + '||\n'
+        '||' + Fore.CYAN + ' 2 - Aplicar busca em profundidade.                                                        ' + Fore.YELLOW + '||\n'
         '||                                                                                           ||\n'
         '===============================================================================================\n'
     )
