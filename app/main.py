@@ -45,11 +45,20 @@ while True:
 
                     dfs_option = (input(Fore.YELLOW + 'Selecione uma opção: ' + Fore.CYAN))
 
+                    digraph = digraphs['digraph_'+digraphs_option]
+                    print('\n'+Fore.GREEN + 'digraph_'+digraphs_option+'\n')
+
+                    for i in digraph:
+                        print(i)
+
                     if dfs_option == '1':
                         graph_funtions.draw_digraph(G,('digraph_'+digraphs_option))
                         dfs_option = (input('\n'+Fore.YELLOW + '0 para sair, Enter para coninuar: ' + Fore.CYAN))
                     elif dfs_option == '2':
-                        dfs_result = graph_funtions.dfs(G, start)
+
+                        node_option = (input('\n'+Fore.YELLOW + 'Selecione um nó de inicio: ' + Fore.CYAN))
+
+                        dfs_result = graph_funtions.dfs(G, node_option)
                         print('\n'+Fore.GREEN + 'Visitados: ' + Fore.RESET + str(dfs_result['visited']))
                         print(Fore.GREEN + 'Tempo de entrada: ' + Fore.RESET + str(dfs_result['entry_time']))
                         print(Fore.GREEN + 'Tempo de saída: ' + Fore.RESET + str(dfs_result['exit_time']))
@@ -179,7 +188,8 @@ while True:
                 content = file.read()
             print(Fore.GREEN + 'Conteúdo do arquivo:\n\n' + Fore.RESET + content)
             
-            save_path = base_funtions.get_resource_path(os.path.join('imports', os.path.basename(file_path)))
+            save_path = base_funtions.get_resource_path(os.path.join('lib', 'imports', os.path.basename(file_path)))
+            print(save_path)
             with open(save_path, 'w') as file:
                 file.write(content)
 

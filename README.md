@@ -56,7 +56,7 @@ Para gerar um executável (.exe) do projeto, você pode usar a biblioteca `pyins
 2. Gere o executável:
 
     ```sh
-    pyinstaller --onefile --add-data "imports;imports" main.py
+    pyinstaller --onefile --add-data "lib;lib" main.py
     ```
 
 2. O executável será gerado na pasta `dist`.
