@@ -1,11 +1,12 @@
 from colorama import init, Fore, Style
-import texts, funtions, os
+from lib import funtions as base_funtions
+import texts, os
 
 init(autoreset=True)
 
 # Limpa a tela antes de exibir o programa
 
-funtions.create_imports_directory()
+base_funtions.create_imports_directory()
 
 while True:
 
@@ -17,12 +18,12 @@ while True:
 
         while True:
 
-            if funtions.is_imports_directory_empty():
+            if base_funtions.is_imports_directory_empty():
                 print('\n'+Fore.RED + 'Nenhum arquivo encontrado.\n')
                 input(Fore.YELLOW + 'Pressione Enter para coninuar: ')
                 break
 
-            files_names, digraphs = funtions.read_all_files_in_imports()
+            files_names, digraphs = base_funtions.read_all_files_in_imports()
             texts.selectable_digraphs(len(files_names), len(digraphs))
 
             digraphs_option = (input(Fore.YELLOW + 'Selecione uma opção: ' + Fore.CYAN))
@@ -30,6 +31,11 @@ while True:
             try:
                 digraph = digraphs['digraph_'+digraphs_option]
                 print('\n'+Fore.GREEN + 'digraph_'+digraphs_option+'\n')
+
+                for i in digraph:
+                    print(i)
+                print('\n')
+
             except:
                 print('\n'+Fore.RED + 'Opção inválida.\n')
 
@@ -51,7 +57,7 @@ while True:
                 content = file.read()
             print(Fore.GREEN + 'Conteúdo do arquivo:\n\n' + Fore.RESET + content)
             
-            save_path = funtions.get_resource_path(os.path.join('imports', os.path.basename(file_path)))
+            save_path = base_funtions.get_resource_path(os.path.join('imports', os.path.basename(file_path)))
             with open(save_path, 'w') as file:
                 file.write(content)
 
